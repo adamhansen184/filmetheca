@@ -9,7 +9,8 @@
         for (var i=0; i<reviews.length; i++) {
             var review = reviews[i];
             var reviewElement = document.createElement("div");
-            reviewElement.textContent = "Movie: " + review.movieName + ", Rating: " + review.starRating + " stars";
+            reviewElement.textContent = "Movie: " + review.movieName + ", Rating: " + review.starRating + " stars," + " Streaming service: " + review.streamingService;
+            reviewElement.classList.add("reviews");
             reviewListElement.appendChild(reviewElement);
         }
     }
@@ -23,12 +24,14 @@
 
     // get values entered by user
     var movieName = document.getElementById("movieName").value;
-    var starRating = document.getElementById("starRating").value
+    var starRating = document.getElementById("starRating").value;
+    var streamingService = document.getElementById("streamingService").value;
 
     // save review to local storage
     var review = {
         movieName: movieName,
-        starRating: starRating
+        starRating: starRating,
+        streamingService: streamingService
       };
       
       var reviews = localStorage.getItem("movieReviews");

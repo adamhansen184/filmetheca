@@ -1,11 +1,31 @@
-document.getElementById("reviewForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting
+  function displayReviews() {
+    var reviews =localStorage.getItem ("movieReviews");
+    if (reviews) {
+        reviews = JSON.parse(reviews);
 
+        var reviewListElement = document.getElementById("reviewList");
+        reviewListElement.innerHTML=""; //clear existing reviews
+
+        for (var i=0; i<reviews.length; i++) {
+            var review = reviews[i];
+            var reviewElement = document.createElement("div");
+            reviewElement.textContent = "Movie: " + review.movieName + ", Rating: " + review.starRating + " stars";
+            reviewListElement.appendChild(reviewElement);
+        }
+    }
+  }
+
+  //display the reviews upon page loading
+  displayReviews();
+
+  document.getElementById("reviewForm").addEventListener("submit", function(event) {
+    event.preventDefault(); //prevents form from submitting
+
+    // get values entered by user
     var movieName = document.getElementById("movieName").value;
-    var starRating = document.getElementById("starRating").value;
+    var starRating = document.getElementById("starRating").value
 
-    
-    
+    // save review to local storage
     var review = {
         movieName: movieName,
         starRating: starRating
@@ -19,10 +39,13 @@ document.getElementById("reviewForm").addEventListener("submit", function(event)
       } else {
         localStorage.setItem("movieReviews", JSON.stringify([review]));
       }
-    alert("Review submitted!");
+    
+      // display reviews
+      displayReviews();
+    
+      alert("Review submitted!");
 
-    console.log(review);
+      //reset the form
+      document.getElementById("reviewForm").reset();
 
-
-    document.getElementById("reviewForm").reset();
-  });
+  })

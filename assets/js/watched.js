@@ -8,10 +8,34 @@
 
         for (var i=0; i<reviews.length; i++) {
             var review = reviews[i];
-            var reviewElement = document.createElement("div");
-            reviewElement.textContent = "Movie: " + review.movieName + ", Rating: " + review.starRating + " stars," + " Streaming service: " + review.streamingService;
-            reviewElement.classList.add("reviews");
-            reviewListElement.appendChild(reviewElement);
+           // create card container
+            var cardElement = document.createElement("div");
+            cardElement.classList.add("card")
+            //create card body
+            var cardBodyElement = document.createElement("div");
+            cardBodyElement.classList.add("card-body");
+            //create movie name element
+            var movieNameElement = document.createElement("h5");
+            movieNameElement.classList.add("card-title");
+            movieNameElement.textContent = "Movie: " +review.movieName;
+            //create rating element
+            var ratingElement = document.createElement("p");
+            ratingElement.classList.add("card-text");
+            ratingElement.textContent = "Rating: " + review.starRating + " stars";
+            //create streaming service element
+            var streamingServiceElement = document.createElement("p");
+            streamingServiceElement.classList.add("card-text");
+            streamingServiceElement.textContent = "Streaming service: " + review.streamingService;
+            //append elements to card body
+            cardBodyElement.appendChild(movieNameElement);
+            cardBodyElement.appendChild(ratingElement);
+            cardBodyElement.appendChild(streamingServiceElement);
+            //append card body to card container
+            cardElement.appendChild(cardBodyElement);
+            //append card container to review list
+            reviewListElement.appendChild(cardElement);
+
+
         }
     }
   }

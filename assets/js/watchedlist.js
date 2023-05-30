@@ -16,8 +16,13 @@ var queryTMDB = 'Lord of the Rings';
 var idTMDB;
 
 // Implement a fetch call that will search using the TMDB API for a queried movie/show.
-// TODO: Add support for pagination of search results by adding the query parameter &page=${pageTMDB}.
-// TODO: Wrap fetch call in a function called by a search box and button.
+// TODO: Wrap fetch call in a function called by a search box, drop-down selection, and search button.
+// TODO: Add support for multiple pages of search results by adding the query parameter &page=${pageTMDB}.
+// TODO: Parse the results of the search and display a list of matching movies/shows to the user.
+// TODO: For each movie/show in the list, display the title and poster image.
+// TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of movies/shows to watch, storing the TMDB ID in local storage.
+// TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of watched movies/shows, storing the TMDB ID in local storage.
+// TODO: For each movie/show in the list, include a drop-down menu to rate a watched movie/show, storing the rating in local storage.
 fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMDB}&query=${encodeURIComponent(queryTMDB)}&include_adult=false&language=en-US`)
     .then( function(response) { return response.json() } )
     .then( function(data) { console.log(data.results) } );

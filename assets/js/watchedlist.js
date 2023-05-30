@@ -10,7 +10,7 @@ var searchTypeTMDB = 'movie';
 // Declare a variable to store the page number to the TMDB API search results.
 var pageTMDB = 1;
 // Declare a variable to store the query string of the TMDB API search results.
-var queryTMDB = 'Lord%20of%20the%20Rings';
+var queryTMDB = 'Lord of the Rings';
 
 // Initialize a variable to store the TMDB ID of the movie/show to search for with the Watchmode API.
 var idTMDB;
@@ -18,7 +18,7 @@ var idTMDB;
 // Implement a fetch call that will search using the TMDB API for a queried movie/show.
 // TODO: Add support for pagination of search results by adding the query parameter &page=${pageTMDB}.
 // TODO: Wrap fetch call in a function called by a search box and button.
-fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMDB}&query=${queryTMDB}&include_adult=false&language=en-US`)
+fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMDB}&query=${encodeURIComponent(queryTMDB)}&include_adult=false&language=en-US`)
     .then( function(response) { return response.json() } )
     .then( function(data) { console.log(data.results) } );
 

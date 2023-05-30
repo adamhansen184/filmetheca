@@ -1,18 +1,18 @@
-// Declare and initialize variable constants for API keys for the TMDB and Watchmode APIs.
+// Declare and initialize constant variable strings containing the API keys for the TMDB and Watchmode APIs.
 // TMDB API Documentation: https://developers.themoviedb.org/docs
 // Watchmode API Documentation: https://api.watchmode.com/docs
 const apiKeyTMDB = 'cac3d39cd60268fd28eb5af557322903';
 const apiKeyWatchmode = 'gbfUPl5ghxgo8Q0kxoP5vcmHOvg2IuVomZdxVJES';
 
-// Declare and initialize a variable to store the type of media to search for with the TMDB API.
+// Declare and initialize a variable as a string to store the type of media to search for with the TMDB API.
 // Valid values are 'movie' or 'tv'.
 var searchTypeTMDB = 'movie';
-// Declare a variable to store the page number to the TMDB API search results.
+// Declare and initialize a variable as a number to store the page number to search with the TMDB API.
 var pageTMDB = 1;
-// Declare a variable to store the query string of the TMDB API search results.
+// Declare and initialize a variable as a string to store the query to search with the TMDB API.
 var queryTMDB = 'Lord of the Rings';
 
-// Initialize a variable to store the TMDB ID of the movie/show to search for with the Watchmode API.
+// Declare a variable to store the TMDB ID of the movie/show to search with the Watchmode API.
 var idTMDB;
 
 // Implement a fetch call that will search using the TMDB API for a queried movie/show.

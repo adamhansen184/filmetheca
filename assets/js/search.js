@@ -11,7 +11,8 @@ var searchTypeTMDB = 'movie';
 var pageTMDB = 2;
 // Declare and initialize a variable as a string to store the query to search with the TMDB API.
 var queryTMDB = 'Lord of the Rings';
-
+// Declare a variable to store the results of the search with the TMDB API.
+var resultsTMDB;
 // Declare a variable to store the TMDB ID of the movie/show to search with the Watchmode API.
 var idTMDB;
 
@@ -28,14 +29,14 @@ fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMD
     } )
     .then( function(initialData) {
         if (initialData.total_pages <= 1) {
-            // TODO: Store the results of the search in the resultsTMDB array.
-            console.log(initialData.results);
+            // Store the results of the search as an array in resultsTMDB.
+            resultsTMDB = initialData.results;
         } else {
-            // TODO: Store the results of the initial search in the resultsTMDB array.
-            console.log(initialData.results);
+            // Store the results of the initial search as an array in resultsTMDB.
+            resultsTMDB = initialData.results;
             // Do-while loop to fetch subsequent pages of results for a queried movie/show.
             do {
-                // Implement a fetch call that will search using the TMDB API for subsequent pages of results for a queried movie/show.
+                // Implement a fetch call that will search using the TMDB API for subsequent pages of results for a queried movie/show, beginning at page 2.
                 fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMDB}&query=${encodeURIComponent(queryTMDB)}&include_adult=false&language=en-US&page=${pageTMDB}`)
                     .then( function(subsequentResponse) {
                         return subsequentResponse.json();
@@ -43,7 +44,9 @@ fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMD
                     .then( function(subsequentData) {
                         // TODO: Append the results of the subsequent search(es) to the resultsTMDB array.
                         console.log(subsequentData.results);
+                        // resultsTMDB = resultsTMDB.concat(subsequentResults); <-- This doesn't work.
                     } );
+                // Increment the page number to search with the TMDB API.
                 pageTMDB++;
             } while (pageTMDB <= initialData.total_pages);
         }

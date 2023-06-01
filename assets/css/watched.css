@@ -1,0 +1,19 @@
+.reviews {
+display: flex;
+flex-wrap: wrap;
+}
+#reviewForm {
+font-size: 22px;
+}
+.card-title {
+    background-color: rgb(201, 194, 194);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.card-body {
+    background-color: rgb(245, 152, 152);
+    border-radius: 10px;
+}
+#reviewForm {
+    margin-left: 20px;
+}

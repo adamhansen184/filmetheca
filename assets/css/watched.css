@@ -1,6 +1,8 @@
 .reviews {
 display: flex;
 flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
 }
 #reviewForm {
 font-size: 22px;
@@ -9,11 +11,25 @@ font-size: 22px;
     background-color: rgb(201, 194, 194);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    font-size: 30px;
+}
+.card-text {
+    font-size: 20px;
 }
 .card-body {
     background-color: rgb(245, 152, 152);
     border-radius: 10px;
+    height: 400px;
+    width: 400px;
 }
 #reviewForm {
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
 }
+
+

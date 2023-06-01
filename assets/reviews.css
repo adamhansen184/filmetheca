@@ -6,8 +6,30 @@
   }
   body {
     height: 100vh;
-    background: linear-gradient(#000000 50%, #ffb92a 50%);
-  }
+    background: linear-gradient(209deg, #fec600, #000000, #e51515);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 40%}
+    50%{background-position:100% 61%}
+    100%{background-position:0% 40%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 40%}
+    50%{background-position:100% 61%}
+    100%{background-position:0% 40%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 40%}
+    50%{background-position:100% 61%}
+    100%{background-position:0% 40%}
+}
+  
   .container {
     font-size: 16px;
     width: 90vw;
@@ -42,7 +64,7 @@
     border-color: #ffffff;
   }
   .search-container button {
-    background-color: #ffb92a;
+    background-color: #f9cc89;
     border: none;
     cursor: pointer;
   }

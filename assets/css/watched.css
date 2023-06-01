@@ -1,3 +1,8 @@
+.content {
+    background-color: black;
+    color: white;
+}
+
 .reviews {
 display: flex;
 flex-wrap: wrap;
@@ -6,18 +11,26 @@ gap: 30px;
 }
 #reviewForm {
 font-size: 22px;
+display: flex;
+flex-wrap: wrap;
+padding-top: 50px;
 }
+
 .card-title {
-    background-color: rgb(201, 194, 194);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-size: 30px;
 }
 .card-text {
     font-size: 20px;
+    color: white;
+}
+div.card {
+    border-radius: 10px;
+    border-color: black;
 }
 .card-body {
-    background-color: rgb(245, 152, 152);
+    background-color: red;
     border-radius: 10px;
     height: 400px;
     width: 400px;

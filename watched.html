@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/watched.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <title>Watched</title>
+    <title>Watched Movies</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-dark bg-danger fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Filmetheca</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
                     Dropdown
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="watched.html">Watched</a></li>
+                    <li><a class="dropdown-item" href="watched.html">Watched Movies</a></li>
                     <li><a class="dropdown-item" href="watchedlist.html">To Watch</a></li>
                     <li><a class="dropdown-item" href="reviews.html">Reviews</a></li>
                   </ul>
@@ -48,11 +48,9 @@
 
       <!DOCTYPE html>
 <html>
-<head>
-  <title>Movie Review</title>
-</head>
+
 <body>
-  <h1>Movie Review</h1>
+  <div class="content">
   
   <form id="reviewForm">
     <label for="movieName">Movie Name:</label>
@@ -82,6 +80,8 @@
   </form>
 
   <div id="reviewList" class="reviews"></div>
+
+</div>
 
 </body>
 </html>

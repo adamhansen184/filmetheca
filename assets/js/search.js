@@ -4,6 +4,16 @@
 const apiKeyTMDB = 'cac3d39cd60268fd28eb5af557322903';
 const apiKeyWatchmode = 'gbfUPl5ghxgo8Q0kxoP5vcmHOvg2IuVomZdxVJES';
 
+// Declare and initialize a variable as an object to store the configuration details of the TMDB API configuration endpoint.
+// TODO: Implement a function called by a button that will refresh the configuration details of the TMDB API configuration endpoint.
+// TODO: Store the configuration details in local storage
+var configurationTMDB = fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKeyTMDB}`)
+    .then( function(response) {
+        return response.json();
+    } )
+    .then( function(data) {
+        return data;
+    } );
 // Declare and initialize a variable as a string to store the type of media to search for with the TMDB API.
 // Valid values are 'movie' or 'tv'.
 var searchTypeTMDB = 'movie';

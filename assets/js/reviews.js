@@ -3,7 +3,7 @@ key = "https://www.omdbapi.com/db5d550d";
 
 
 // References
-let movieNameRef = document.getElementById("Movie-Name");
+let movieNameRef = document.getElementById("movie-name");
 let searchbutton = document.getElementById("search-button");
 let result = document.getElementById("result");
 

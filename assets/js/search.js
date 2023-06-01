@@ -62,18 +62,17 @@ fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMD
         }
      } );
 
-
+// Declare and initialize a variable to store a listing of all free and subscription streaming services in the United States supported by the Watchmode API.
 // TODO: Implement a function called by a button that will refresh the list of streaming sources provided by the Watchmode API.
 // TODO: Store the list of streaming sources in local storage.
-
-// TODO: Implement a function called by a button that will display a list of streaming sources for a movie/show using the Watchmode API.
-
-// Returns a listing of all free and subscription streaming services in the United States that the Watchmode API supports.
-// fetch('https://api.watchmode.com/v1/sources/?apiKey=' + apiKeyWatchmode + '&regions=US&types=free,sub')
+// var streamingSourcesWatchmode = fetch(`https://api.watchmode.com/v1/sources/?apiKey=${apiKeyWatchmode}&regions=US&types=free,sub`)
 //     .then( function(response) { return response.json() } )
 //     .then( function(data) { return data } );
+// console.log('Watchmode Streaming Sources');
+// console.log(streamingSourcesWatchmode);
 
 // Returns a listing of the streaming sources for a specified title using the title's TMDB ID.
-// fetch('https://api.watchmode.com/v1/title/' + idTMDB + '/sources/?apiKey=' + apiKeyWatchmode)
+// TODO: Display a list of streaming sources for a movie/show using the Watchmode API.
+// fetch(`https://api.watchmode.com/v1/title/${idTMDB}/sources/?apiKey=${apiKeyWatchmode}`)
 //     .then( function(response) { return response.json() } )
 //     .then( function(data) { return data } );

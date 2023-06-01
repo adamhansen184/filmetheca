@@ -99,7 +99,7 @@
       <div class="row">
         <div class="col">
           <div class="wrapper">
-            <div class="card" style="width: 18rem" ml-x="1" onclick="cardClicked('watchlist')">
+            <div class="card mr-1" style="width: 18rem" onclick="cardClicked('watchlist')">
               <img src="assets/movie1.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title"></h5>
@@ -149,9 +149,21 @@
     ></script>
     <script>
       function cardClicked(category) {
-        alert("Card clicked! Category: " + category);
-        // Additional actions for each category can be performed here
+        switch (category) {
+          case 'watchlist':
+            window.location.href = 'watchedlist.html';
+            break;
+          case 'watched':
+            window.location.href = 'watched.html';
+            break;
+          case 'reviews':
+            window.location.href = 'reviews.html';
+            break;
+          default:
+            break;
+        }
       }
     </script>
+    
   </body>
 </html>

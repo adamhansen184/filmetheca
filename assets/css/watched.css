@@ -1,31 +1,48 @@
-.card-body {
-    background: linear-gradient(270deg, #ff0705, #780100);
+.content {
+    background: linear-gradient(209deg, #fec600, #000000, #e51515);
     background-size: 400% 400%;
 
     -webkit-animation: AnimationName 30s ease infinite;
     -moz-animation: AnimationName 30s ease infinite;
-    animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;}
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+
+.header {
+    margin-top: 55px;
+    padding: 10px;
+    color: white;
+}
+.mymovies {
+    padding: 10px;
+    color: white;
+}
+
+
+.card-body {
+
 
     border-radius: 10px;
     height: 400px;
     width: 400px;
+    padding: 10px;
 }
 
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
+
 
 .reviews {
 display: flex;
@@ -37,8 +54,7 @@ gap: 30px;
 font-size: 22px;
 display: flex;
 flex-wrap: wrap;
-padding-top: 50px;
-color: black;
+color: white;
 }
 
 .card-title {
@@ -49,7 +65,7 @@ color: black;
 }
 .card-text {
     font-size: 20px;
-    color: white;
+    color: black;
 }
 div.card {
     border-radius: 10px;

@@ -79,7 +79,7 @@
     margin-top: 1.2em;
   }
   .poster {
-    width: 100%;
+    width: auto;
   }
   h2 {
     text-align: center;
@@ -146,6 +146,6 @@
     .poster {
       margin: auto;
       width: auto;
-      max-height: 10.8em;
+      max-height: 9.8em;
     }
   }

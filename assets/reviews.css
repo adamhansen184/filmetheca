@@ -71,3 +71,7 @@
   #result {
     color: #ffffff;
   }
+  .bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: red;
+}

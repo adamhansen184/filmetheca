@@ -3,6 +3,11 @@
     if (reviews) {
         reviews = JSON.parse(reviews);
 
+        // sorts movies by rating
+        reviews.sort(function(a,b) {
+          return b.starRating - a.starRating;
+        });
+
         var reviewListElement = document.getElementById("reviewList");
         reviewListElement.innerHTML=""; //clear existing reviews
 

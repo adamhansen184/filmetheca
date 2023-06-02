@@ -1,19 +1,68 @@
+.card-body {
+    background: linear-gradient(270deg, #ff0705, #780100);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+
+    border-radius: 10px;
+    height: 400px;
+    width: 400px;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 .reviews {
 display: flex;
 flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
 }
 #reviewForm {
 font-size: 22px;
+display: flex;
+flex-wrap: wrap;
+padding-top: 50px;
+color: black;
 }
+
 .card-title {
-    background-color: rgb(201, 194, 194);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    font-size: 30px;
+    color: white;
 }
-.card-body {
-    background-color: rgb(245, 152, 152);
+.card-text {
+    font-size: 20px;
+    color: white;
+}
+div.card {
     border-radius: 10px;
+    border-color: black;
 }
 #reviewForm {
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
 }
+
+

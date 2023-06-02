@@ -31,7 +31,7 @@ var pageTMDB = 1;
 // Declare and initialize a variable as a string to store the query to search with the TMDB API.
 var queryTMDB = 'Lord of the Rings';
 // Declare a variable to store the results of the search with the TMDB API.
-var resultsTMDB;
+var searchResultTMDB;
 // Declare and initialize a variable as a string to store the type of media to search for with the TMDB API.
 // Valid values are 'movie' or 'tv'.
 var searchTypeTMDB = 'movie';
@@ -43,13 +43,31 @@ var titleIdTMDB;
 // TODO: Support multiple pages of results for a queried movie/show by implementing a button to display the next page of results.
 fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMDB}&query=${encodeURIComponent(queryTMDB)}&include_adult=false&language=en-US&page=${pageTMDB}`)
     .then( function(response) { return response.json() } )
-    .then( function(data) { resultsTMDB = data.results } );
+    .then( function(data) { parseTMDBResults(data.results) } );
 
-// TODO: Parse the results of the search and display a list of matching movies/shows to the user.
-// TODO: For each movie/show in the list, display the title and poster image.
-// TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of movies/shows to watch, storing the TMDB ID in local storage.
-// TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of watched movies/shows, storing the TMDB ID in local storage.
+// Declare a function to parse the results of the search.
+// TODO: Display the results of matching movies/shows to the user.
+// TODO: For each movie/show in the list, display the title, poster image, and rating.
+// TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of movies/shows to watch, storing the data in local storage.
+// TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of watched movies/shows, storing the data in local storage.
 // TODO: For each movie/show in the list, include a drop-down menu to rate a watched movie/show, storing the rating in local storage.
+function parseTMDBResults (results) {
+    console.log('TMDB Search Results');
+    console.log(results);
+
+    for (var i = 0; i < results.length; i++) {
+        console.log('Title ID');
+        console.log(results[i].id);
+        console.log('Title');
+        console.log(results[i].title);
+        console.log('Poster Image');
+        console.log(results[i].poster_path);
+        console.log('Vote Average');
+        console.log(results[i].vote_average);
+        console.log('Vote Count');
+        console.log(results[i].vote_count);
+    }
+}
 
 // Declare and initialize a variable to store a listing of all free and subscription streaming services in the United States supported by the Watchmode API.
 // TODO: Implement a function called by a button that will refresh the list of streaming sources provided by the Watchmode API.

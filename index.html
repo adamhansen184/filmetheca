@@ -10,6 +10,14 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <style>
+      body {
+        background-color: #0c090a;
+      }
+      p {
+        color: #ddd1a6;
+      }
+    </style>
     <title>Filmetheca</title>
   </head>
   <body>
@@ -48,9 +56,6 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -62,7 +67,7 @@
                   Dropdown
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="watchedlist.html">Watch List</a></li>
+                  <li><a class="dropdown-item" href="towatch.html">To Watch</a></li>
                   <li><a class="dropdown-item" href="watched.html">Watched</a></li>
                   <li><a class="dropdown-item" href="reviews.html">Reviews</a></li>
                   <li>
@@ -85,18 +90,18 @@
     <div class="">
       <a href="reviews.html">reviews</a>
       <a href="watched.html">watched</a>
-      <a href="watchedlist.html">watchlist</a>
+      <a href="towatch.html">watchlist</a>
     </div>
     <div>
       <div class="row">
         <div class="col">
           <div class="wrapper">
-            <div class="card" style="width: 18rem">
-              <img src="..." class="card-img-top" alt="..." />
+            <div class="card mr-1" style="width: 18rem" onclick="cardClicked('watchlist')">
+              <img src="assets/movie1.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
-                <a href="watchedlist.html" class="btn btn-primary">Watchlist</a>
+                <a href="towatch.html" class="btn btn-primary">Watchlist</a>
               </div>
             </div>
             <p>The collection of movies and shows that you are looking forward to.</p>
@@ -105,8 +110,8 @@
         
         <div class="col">
           <div class="wrapper">
-            <div class="card" style="width: 18rem">
-              <img src="..." class="card-img-top" alt="..." />
+            <div class="card" style="width: 18rem" onclick="cardClicked('watched')">
+              <img src="assets/movie3.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text"></p>
@@ -119,8 +124,8 @@
         
         <div class="col">
           <div class="wrapper">
-            <div class="card" style="width: 18rem">
-              <img src="..." class="card-img-top" alt="..." />
+            <div class="card" style="width: 18rem" onclick="cardClicked('reviews')">
+              <img src="assets/movie2.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text"> </p>
@@ -139,5 +144,23 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function cardClicked(category) {
+        switch (category) {
+          case 'watchlist':
+            window.location.href = 'watchedlist.html';
+            break;
+          case 'watched':
+            window.location.href = 'watched.html';
+            break;
+          case 'reviews':
+            window.location.href = 'reviews.html';
+            break;
+          default:
+            break;
+        }
+      }
+    </script>
+    
   </body>
 </html>

@@ -24,6 +24,8 @@ if (localStorage.getItem('TMDBConfigurationBoolean') === null || localStorage.ge
 
 // Declare and initialize a variable to store the configuration details of the TMDB API configuration endpoint pulled from local storage.
 var configurationTMDB = JSON.parse(localStorage.getItem('TMDBConfiguration'));
+// Declare and initialize a variable as a string to store the secure base image URL of the images provided by the TMDB API.
+var imageBaseUrlTMDB = configurationTMDB.images.secure_base_url;
 // Declare and initialize a variable as a number to store the first subsequent page number to search with the TMDB API.
 var pageTMDB = 2;
 // Declare and initialize a variable as a string to store the query to search with the TMDB API.

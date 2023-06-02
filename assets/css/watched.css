@@ -34,8 +34,7 @@
 
 
 .card-body {
-
-
+    background-color:#212529;
     border-radius: 10px;
     height: 400px;
     width: 400px;
@@ -65,12 +64,12 @@ color: white;
 }
 .card-text {
     font-size: 20px;
-    color: black;
+    color: white;
 }
 div.card {
     border-radius: 10px;
-    border-color: black;
 }
+
 #reviewForm {
     margin-right: 10px;
     margin-left: 10px;

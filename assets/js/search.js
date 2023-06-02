@@ -4,27 +4,37 @@
 const apiKeyTMDB = 'cac3d39cd60268fd28eb5af557322903';
 const apiKeyWatchmode = 'gbfUPl5ghxgo8Q0kxoP5vcmHOvg2IuVomZdxVJES';
 
-// Declare and initialize a variable as an object to store the configuration details of the TMDB API configuration endpoint.
-// TODO: Implement a function called by a button that will refresh the configuration details of the TMDB API configuration endpoint.
-// TODO: Store the configuration details in local storage
-var configurationTMDB = fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKeyTMDB}`)
-    .then( function(response) {
-        return response.json();
-    } )
-    .then( function(data) {
-        return data;
-    } );
-// Declare and initialize a variable as a string to store the type of media to search for with the TMDB API.
-// Valid values are 'movie' or 'tv'.
-var searchTypeTMDB = 'movie';
+// Declare a function that will refresh the configuration details of the TMDB API configuration endpoint.
+function configureTMDB() {
+
+    // Store the configuration details object of the TMDB API configuration endpoint in local storage as TMDBConfiguration.
+    fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKeyTMDB}`)
+        .then( function(response) { return response.json() } )
+        .then( function(data) { localStorage.setItem( 'TMDBConfiguration', JSON.stringify(data) ) } );
+    
+    // Store a true/false string value of the TMDB API configuration in local storage as TMDBConfigurationBoolean.    
+    localStorage.setItem('TMDBConfigurationBoolean', 'true');
+
+}
+
+// Refresh the configuration details of the TMDB API configuration endpoint if they have never been retrieved or stored in local storage.
+if (localStorage.getItem('TMDBConfigurationBoolean') === null || localStorage.getItem('TMDBConfigurationBoolean') === 'false') {
+    configureTMDB();
+}
+
+// Declare and initialize a variable to store the configuration details of the TMDB API configuration endpoint pulled from local storage.
+var configurationTMDB = JSON.parse(localStorage.getItem('TMDBConfiguration'));
 // Declare and initialize a variable as a number to store the first subsequent page number to search with the TMDB API.
 var pageTMDB = 2;
 // Declare and initialize a variable as a string to store the query to search with the TMDB API.
 var queryTMDB = 'Lord of the Rings';
 // Declare a variable to store the results of the search with the TMDB API.
 var resultsTMDB;
+// Declare and initialize a variable as a string to store the type of media to search for with the TMDB API.
+// Valid values are 'movie' or 'tv'.
+var searchTypeTMDB = 'movie';
 // Declare a variable to store the TMDB ID of the movie/show to search with the Watchmode API.
-var idTMDB;
+var titleIdTMDB;
 
 // Implement a fetch call that will search using the TMDB API for a queried movie/show.
 // TODO: Wrap fetch call in a function called by a search box, drop-down selection, and search button.

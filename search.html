@@ -18,7 +18,24 @@
     <!-- TODO: Implement Site Navigation Bar with Search Field -->
 
     <!-- Main Content -->
-    <!-- TODO: Implement Search Field, Drop-Down Selection, and Search Button -->
+    <!-- Container for Title Search Form, Title Query Field, Title Search Type Drop-Down Selection, and Search Button -->
+    <div class="titleSearchContainer">
+        <form id="titleSearchForm">
+
+            <!-- Title Query Field -->
+            <input aria-label="Title Query" id="titleQueryField" name="titleQueryField" placeholder="Movie/TV Show Title" required type="search">
+            
+            <!-- Title Search Type Drop-Down Selection -->
+            <select aria-label="Title Search Type" id="titleSearchTypeField" name="titleSearchTypeField" required>
+                <option value="movie" selected>Movie</option>
+                <option value="tv">TV Show</option>
+            </select>
+
+            <!-- Search Button -->
+            <button aria-label="Search" id="titleSearchButton" type="submit">Search</button>
+
+        </form>
+    </div>
 
     <!-- TODO: Implement Display of Search Results -->
 

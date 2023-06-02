@@ -4,6 +4,13 @@
 const apiKeyTMDB = 'cac3d39cd60268fd28eb5af557322903';
 const apiKeyWatchmode = 'gbfUPl5ghxgo8Q0kxoP5vcmHOvg2IuVomZdxVJES';
 
+// Declare and initialize a variable to return the title query field in the DOM.
+var titleQueryField = document.getElementById('titleQueryField');
+// Declare and initialize a variable to return the title search form in the DOM.
+var titleSearchForm = document.getElementById('titleSearchForm');
+// Declare and initialize a variable to return the title search type field in the DOM.
+var titleSearchTypeField = document.getElementById('titleSearchTypeField');
+
 // Declare a function that will refresh the configuration details of the TMDB API configuration endpoint.
 function configureTMDB() {
 
@@ -27,23 +34,30 @@ var configurationTMDB = JSON.parse(localStorage.getItem('TMDBConfiguration'));
 // Declare and initialize a variable as a string to store the secure base image URL of the images provided by the TMDB API.
 var imageBaseUrlTMDB = configurationTMDB.images.secure_base_url;
 // Declare and initialize a variable as a number to store the first subsequent page number to search with the TMDB API.
-var pageTMDB = 1;
-// Declare and initialize a variable as a string to store the query to search with the TMDB API.
-var queryTMDB = 'Lord of the Rings';
+var searchResultPageNumberTMDB = 1;
 // Declare a variable to store the results of the search with the TMDB API.
 var searchResultTMDB;
-// Declare and initialize a variable as a string to store the type of media to search for with the TMDB API.
-// Valid values are 'movie' or 'tv'.
-var searchTypeTMDB = 'movie';
 // Declare a variable to store the TMDB ID of the movie/show to search with the Watchmode API.
-var titleIdTMDB;
+var titleQueryWatchmode;
 
-// Implement a fetch call that will search using the TMDB API for a queried movie/show.
-// TODO: Wrap fetch call in a function called by a search box, drop-down selection, and search button.
-// TODO: Support multiple pages of results for a queried movie/show by implementing a button to display the next page of results.
-fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMDB}&query=${encodeURIComponent(queryTMDB)}&include_adult=false&language=en-US&page=${pageTMDB}`)
-    .then( function(response) { return response.json() } )
-    .then( function(data) { parseTMDBResults(data.results) } );
+// Wrap fetch call in a function called by a search box, drop-down selection, and search button.
+function queryTMDB(event) {
+
+    // Prevent the default behavior of the form submission.
+    event.preventDefault();
+
+    // Declare and initialize a variable as a string to store the value of the title to query with the TMDB API.
+    let titleQueryTMDB = titleQueryField.value;
+    // Declare and initialize a variable as a string to store the value of the type of media to query for with the TMDB API.
+    // Valid values are 'movie' or 'tv'.
+    let titleSearchTypeTMDB = titleSearchTypeField.value;
+
+    // Perform a fetch call that will search using the TMDB API for a queried movie/show.
+    fetch(`https://api.themoviedb.org/3/search/${titleSearchTypeTMDB}?api_key=${apiKeyTMDB}&query=${encodeURIComponent(titleQueryTMDB)}&include_adult=false&language=en-US&page=${searchResultPageNumberTMDB}`)
+        .then( function(response) { return response.json() } )
+        .then( function(data) { parseTMDBResults(data.results) } );
+    
+}
 
 // Declare a function to parse the results of the search.
 // TODO: Display the results of matching movies/shows to the user.
@@ -51,6 +65,7 @@ fetch(`https://api.themoviedb.org/3/search/${searchTypeTMDB}?api_key=${apiKeyTMD
 // TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of movies/shows to watch, storing the data in local storage.
 // TODO: For each movie/show in the list, include a button to add the movie/show to the user's list of watched movies/shows, storing the data in local storage.
 // TODO: For each movie/show in the list, include a drop-down menu to rate a watched movie/show, storing the rating in local storage.
+// TODO: Support multiple pages of results for a queried movie/show by implementing a button to display the next page of results.
 function parseTMDBResults (results) {
     console.log('TMDB Search Results');
     console.log(results);
@@ -83,3 +98,6 @@ function parseTMDBResults (results) {
 // fetch(`https://api.watchmode.com/v1/title/${idTMDB}/sources/?apiKey=${apiKeyWatchmode}`)
 //     .then( function(response) { return response.json() } )
 //     .then( function(data) { return data } );
+
+// Add an event listener to the title search form that will call the queryTMDB function when the form is submitted.
+titleSearchForm.addEventListener('submit', queryTMDB);

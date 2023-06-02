@@ -26,7 +26,14 @@
             //create rating element
             var ratingElement = document.createElement("p");
             ratingElement.classList.add("card-text");
-            ratingElement.textContent = "Rating: " + review.starRating + " stars";
+            ratingElement.textContent = "Rating: ";
+              // Create star icons based on the rating
+            for (var j = 0; j < review.starRating; j++) {
+            var starIcon = document.createElement("span");
+            starIcon.innerHTML = "&#9733;"; // Unicode character for a filled star
+            ratingElement.appendChild(starIcon);}
+              // Append the rating element to the card body
+            cardBodyElement.appendChild(ratingElement);
             //create streaming service element
             var streamingServiceElement = document.createElement("p");
             streamingServiceElement.classList.add("card-text");

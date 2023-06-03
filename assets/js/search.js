@@ -75,6 +75,9 @@ function parseTMDBResults (results) {
         // Declare and initialize a variable to store the current result object.
         let result = results[i];
 
+        // Declare and initialize a variable to store and create a Bootstrap column HTML element.
+        let columnElement = document.createElement('div');
+        columnElement.classList.add('col');
         // Declare and initialize a variable to store and create a Bootstrap card HTML element.
         let cardElement = document.createElement('div');
         cardElement.classList.add('card');
@@ -133,8 +136,10 @@ function parseTMDBResults (results) {
         cardWatchedButtonElement.classList.add('btn-warning');
         cardWatchedButtonElement.setAttribute('type', 'button');
         cardWatchedButtonElement.textContent = 'Mark as Watched';
+
         // Append the individual card elements to the search results container.
-        searchResultContainer.appendChild(cardElement);
+        searchResultContainer.appendChild(columnElement);
+        columnElement.appendChild(cardElement);
         cardElement.appendChild(cardRowElement);
         cardRowElement.appendChild(cardImageColumnElement);
         cardImageColumnElement.appendChild(cardImageElement);

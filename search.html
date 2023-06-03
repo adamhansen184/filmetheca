@@ -34,28 +34,53 @@
         </header>
     
         <!-- Main Content -->
-        <!-- Container for Title Search Form, Title Query Field, Title Search Type Drop-Down Selection, and Search Button -->
-        <div id="searchFormContainer">
-            <form id="titleSearchForm">
-    
-                <!-- Title Query Field -->
-                <input aria-label="Title Query" id="titleQueryField" name="titleQueryField"
-                    placeholder="Movie/TV Show Title" required type="search">
-    
-                <!-- Title Search Type Drop-Down Selection -->
-                <select aria-label="Title Search Type" id="titleSearchTypeField" name="titleSearchTypeField" required>
-                    <option value="movie" selected>Movie</option>
-                    <option value="tv">TV Show</option>
-                </select>
-    
-                <!-- Search Button -->
-                <button aria-label="Search" id="titleSearchButton" type="submit">Search</button>
-    
-            </form>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <!-- Bootstrap Card Container for About -->
+                <div class="card">
+                    <h5 class="card-header">
+                        About
+                    </h5>
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, aliquid, illum
+                            cum ullam
+                            molestiae corporis commodi minima esse praesentium dolores debitis unde earum? Deserunt mollitia
+                            neque hic
+                            voluptas, eius tenetur.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <!-- Bootstrap Card Container for Title Search Form, Title Query Field, Title Search Type Drop-Down Selection, and Search Button -->
+                <div class="card" id="searchFormContainer">
+                    <h5 class="card-header">
+                        Title Search
+                    </h5>
+                    <div class="card-body">
+                        <form id="titleSearchForm">
+        
+                            <!-- Title Query Field -->
+                            <input aria-label="Title Search" class="form-control" id="titleQueryField" name="titleQueryField"
+                                placeholder="Movie/TV Show Title" required type="search">
+        
+                            <!-- Title Search Type Drop-Down Selection -->
+                            <select aria-label="Title Search Type" class="form-select" id="titleSearchTypeField"
+                                name="titleSearchTypeField" required>
+                                <option value="movie" selected>Movie</option>
+                                <option value="tv">TV Show</option>
+                            </select>
+        
+                            <!-- Search Button -->
+                            <button aria-label="Search" class="btn btn-primary" id="titleSearchButton"
+                                type="submit">Search</button>
+        
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    
         <!-- Container to Display Search Results -->
-        <div class="container-fluid" id="searchResultContainer"></div>
+        <div class="row col-1 col-md-2" id="searchResultContainer"></div>
     
         <!-- TODO: Implement Site Footer -->
     </div>

@@ -1,0 +1,53 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+:root {
+    --background-dark: #0c090a;
+    --background-light: #312b2c;
+    --header-red: #b82e24;
+    --text-dark: #d29314;
+    --text-light: #ddd1a6;
+    --text-medium: #b99e6d;
+}
+
+/* ID Selectors */
+#site-title {
+    font-family: "Lobster", cursive;
+    color: var(--text-dark);
+    text-transform: lowercase;
+}
+
+/* Class Selectors and Bootstrap Overrides */
+.card {
+    border-color: var(--header-red);
+}
+
+.card-body {
+    background-color: var(--background-light);
+}
+
+.card-header {
+    background-color: var(--header-red);
+    color: var(--text-light);
+}
+
+.card-maximum-width {
+    max-width: 540px;
+}
+
+.nav-link {
+    color: var(--text-light);
+}
+
+.nav-link:hover {
+    color: var(--text-dark);
+}
+
+/* Tag Selectors */
+body {
+    background-color: var(--background-dark);
+}
+
+p {
+    color: var(--text-dark);
+}

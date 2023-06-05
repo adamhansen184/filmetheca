@@ -1,11 +1,22 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+/* ID Selectors */
+#site-title {
+  font-family: 'Lobster', cursive;
+  text-transform: lowercase;
+}
+
+/* Class Selectors */
 .card-maximum-width {
   max-width: 540px;
 }
 
-#site-title {
-  font-family: 'Lobster', cursive;
-  text-transform: lowercase;
+/* Tag Selectors */
+body {
+  background-color: #0c090a;
+}
+
+p {
+  color: #ddd1a6;
 }

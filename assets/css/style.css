@@ -23,7 +23,7 @@
 }
 
 .card-body {
-    background-color: var(--background-light);
+    background-color: #312b2c ;
 }
 
 .card-header {
@@ -49,7 +49,7 @@ body {
 }
 
 p {
-    color: var(--text-dark);
+    color: #ddd1a6;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
@@ -81,4 +81,27 @@ body {
     0%{background-position:0% 40%}
     50%{background-position:100% 61%}
     100%{background-position:0% 40%}
+}
+
+.card-title {
+    margin-bottom: var(--bs-card-title-spacer-y);
+    color: #ddd1a6;
+}
+
+.card-subtitle {
+    margin-top: calc(-.5 * var(--bs-card-title-spacer-y));
+    margin-bottom: 0;
+    color: #ddd1a6 ;
+}
+
+.col-md-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+    background-color: #312b2c;
+}
+
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+    background-color:#312b2c ;
 }

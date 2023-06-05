@@ -26,11 +26,6 @@ function configureTMDB() {
 
 }
 
-// Refresh the configuration details of the TMDB API configuration endpoint if they have never been retrieved or stored in local storage.
-if (localStorage.getItem('TMDBConfigurationBoolean') === null || localStorage.getItem('TMDBConfigurationBoolean') === 'false') {
-    configureTMDB();
-}
-
 // Declare and initialize a variable to store the configuration details of the TMDB API configuration endpoint pulled from local storage.
 var configurationTMDB = JSON.parse(localStorage.getItem('TMDBConfiguration'));
 // Declare and initialize a variable as a string to store the secure base image URL of the images provided by the TMDB API.
@@ -152,20 +147,31 @@ function parseTMDBResults (results) {
     }
 }
 
-// Declare and initialize a variable to store a listing of all free and subscription streaming services in the United States supported by the Watchmode API.
-// TODO: Implement a function called by a button that will refresh the list of streaming sources provided by the Watchmode API.
+// Declare a function to return an array of all free and subscription streaming services in the United States supported by the Watchmode API.
 // TODO: Store the list of streaming sources in local storage.
-// var streamingSourcesWatchmode = fetch(`https://api.watchmode.com/v1/sources/?apiKey=${apiKeyWatchmode}&regions=US&types=free,sub`)
-//     .then( function(response) { return response.json() } )
-//     .then( function(data) { return data } );
-// console.log('Watchmode Streaming Sources');
-// console.log(streamingSourcesWatchmode);
+function refreshAvailableSourcesWatchmode(params) {
+    let streamingSourcesWatchmode = fetch(`https://api.watchmode.com/v1/sources/?apiKey=${apiKeyWatchmode}&regions=US&types=free,sub`)
+    .then( function(response) { return response.json() } )
+    .then( function(data) { return data } );
+    console.log('Watchmode Streaming Sources');
+    console.log(streamingSourcesWatchmode);
+}
 
 // Returns a listing of the streaming sources for a specified title using the title's TMDB ID.
 // TODO: Display a list of streaming sources for a movie/show using the Watchmode API.
-// fetch(`https://api.watchmode.com/v1/title/${idTMDB}/sources/?apiKey=${apiKeyWatchmode}`)
+// fetch(`https://api.watchmode.com/v1/title/${titleQueryWatchmode}/sources/?apiKey=${apiKeyWatchmode}`)
 //     .then( function(response) { return response.json() } )
 //     .then( function(data) { return data } );
+
+// Refresh the configuration details of the TMDB API configuration endpoint if they have never been retrieved or stored in local storage.
+if (localStorage.getItem('TMDBConfigurationBoolean') === null || localStorage.getItem('TMDBConfigurationBoolean') === 'false') {
+    configureTMDB();
+}
+
+// Refresh the list of streaming sources from the Watchmode API if they have never been retrieved or stored in local storage.
+if (localStorage.getItem('WatchmodeStreamingSourcesBoolean') === null || localStorage.getItem('WatchmodeStreamingSourcesBoolean') === 'false') {
+    // refreshAvailableSourcesWatchmode(); <-- This is not yet fully working, so to save on API calls, is currently disabled.
+}
 
 // Add an event listener to the title search form that will call the queryTMDB function when the form is submitted.
 titleSearchForm.addEventListener('submit', queryTMDB);

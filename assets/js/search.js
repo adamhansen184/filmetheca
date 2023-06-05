@@ -79,9 +79,9 @@ function parseTMDBResults(results) {
         let cardElement = document.createElement("div");
         cardElement.classList.add("card");
         cardElement.classList.add("mb-3");
+        cardElement.classList.add("card-maximum-width");
         // Add the TMDB Title ID to the card HTML element ID attribute.
         cardElement.setAttribute("id", result.id);
-        cardElement.setAttribute("style", "max-width: 540px;"); // <-- This should most likely be moved into a CSS file instead of being inline.
         // Declare and initialize a variable to store and create a Bootstrap card row HTML element.
         let cardRowElement = document.createElement("div");
         cardRowElement.classList.add("row");

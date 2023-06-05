@@ -29,6 +29,14 @@ function configureTMDB() {
     localStorage.setItem("TMDBConfigurationBoolean", "true");
 }
 
+// Refresh the configuration details of the TMDB API configuration endpoint if they have never been retrieved or stored in local storage.
+if (
+    localStorage.getItem("TMDBConfigurationBoolean") === null ||
+    localStorage.getItem("TMDBConfigurationBoolean") === "false"
+) {
+    configureTMDB();
+}
+
 // Declare and initialize a variable to store the configuration details of the TMDB API configuration endpoint pulled from local storage.
 var configurationTMDB = JSON.parse(localStorage.getItem("TMDBConfiguration"));
 // Declare and initialize a variable as a string to store the secure base image URL of the images provided by the TMDB API.
@@ -44,6 +52,11 @@ var titleQueryWatchmode;
 function queryTMDB(event) {
     // Prevent the default behavior of the form submission.
     event.preventDefault();
+
+    // Clear any search results container of any previous search results.
+    while (searchResultContainer.firstChild) {
+        searchResultContainer.removeChild(searchResultContainer.firstChild);
+    }
 
     // Declare and initialize a variable as a string to store the value of the title to query with the TMDB API.
     let titleQueryTMDB = titleQueryField.value;
@@ -132,13 +145,13 @@ function parseTMDBResults(results) {
         cardWatchButtonElement.classList.add("btn");
         cardWatchButtonElement.classList.add("btn-warning");
         cardWatchButtonElement.setAttribute("type", "button");
-        cardWatchButtonElement.textContent = "Add to Watch List";
+        cardWatchButtonElement.textContent = "Read Reviews";
         // Declare and initialize a variable to store and create a Bootstrap card button HTML element to allow the user to add the movie/show to their list of watched movies/shows.
         let cardWatchedButtonElement = document.createElement("button");
         cardWatchedButtonElement.classList.add("btn");
         cardWatchedButtonElement.classList.add("btn-warning");
         cardWatchedButtonElement.setAttribute("type", "button");
-        cardWatchedButtonElement.textContent = "Mark as Watched";
+        cardWatchedButtonElement.textContent = "Write a Review";
 
         // Append the individual card elements to the search results container.
         searchResultContainer.appendChild(columnElement);
@@ -195,14 +208,6 @@ function refreshAvailableSourcesWatchmode() {
 // TODO: Write a displayWatched function to display the user's Watched list.
 // TODO: For each movie/show in the list, display the description, poster, rating, and title from TMDB.
 // TODO: For each movie/show in the list, display the user's rating and streaming source.
-
-// Refresh the configuration details of the TMDB API configuration endpoint if they have never been retrieved or stored in local storage.
-if (
-    localStorage.getItem("TMDBConfigurationBoolean") === null ||
-    localStorage.getItem("TMDBConfigurationBoolean") === "false"
-) {
-    configureTMDB();
-}
 
 // Refresh the list of streaming sources from the Watchmode API if they have never been retrieved or stored in local storage.
 if (

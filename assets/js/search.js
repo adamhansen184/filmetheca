@@ -148,13 +148,23 @@ function parseTMDBResults (results) {
 }
 
 // Declare a function to return an array of all free and subscription streaming services in the United States supported by the Watchmode API.
-// TODO: Store the list of streaming sources in local storage.
-function refreshAvailableSourcesWatchmode(params) {
-    let streamingSourcesWatchmode = fetch(`https://api.watchmode.com/v1/sources/?apiKey=${apiKeyWatchmode}&regions=US&types=free,sub`)
-    .then( function(response) { return response.json() } )
-    .then( function(data) { return data } );
-    console.log('Watchmode Streaming Sources');
-    console.log(streamingSourcesWatchmode);
+function refreshAvailableSourcesWatchmode() {
+    // Store the list of streaming sources from Watchmode in local storage as WatchmodeStreamingSources.
+    fetch(
+        `https://api.watchmode.com/v1/sources/?apiKey=${apiKeyWatchmode}&regions=US&types=free,sub`
+    )
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            localStorage.setItem(
+                "WatchmodeStreamingSources",
+                JSON.stringify(data)
+            );
+        });
+
+    // Store a true/false string value of the Watchmode Streaming Sources in local storage as WatchmodeStreamingSourcesBoolean.
+    localStorage.setItem("WatchmodeStreamingSourcesBoolean", "true");
 }
 
 // Returns a listing of the streaming sources for a specified title using the title's TMDB ID.
@@ -169,8 +179,11 @@ if (localStorage.getItem('TMDBConfigurationBoolean') === null || localStorage.ge
 }
 
 // Refresh the list of streaming sources from the Watchmode API if they have never been retrieved or stored in local storage.
-if (localStorage.getItem('WatchmodeStreamingSourcesBoolean') === null || localStorage.getItem('WatchmodeStreamingSourcesBoolean') === 'false') {
-    // refreshAvailableSourcesWatchmode(); <-- This is not yet fully working, so to save on API calls, is currently disabled.
+if (
+    localStorage.getItem("WatchmodeStreamingSourcesBoolean") === null ||
+    localStorage.getItem("WatchmodeStreamingSourcesBoolean") === "false"
+) {
+    refreshAvailableSourcesWatchmode();
 }
 
 // Add an event listener to the title search form that will call the queryTMDB function when the form is submitted.

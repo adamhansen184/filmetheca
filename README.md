@@ -1,5 +1,8 @@
 ## Filmetheca
 
+## About 
+Filmetheca is a comprehensive app to provide subscribers of multiple streaming services with an app to maintain a list of movies and shows you intend to watch; track your watched movies and TV shows; and rate your viewing experiences.
+
 ## User story
 As a user, I would like an app that allows me to keep track of what movies/shows I have watched, what movies/shows I would like to watch, where I watched my movies/shows and where I can watch. I would also like to be able to see reviews of different movies/shows.
 

@@ -56,3 +56,9 @@ The target audience of Filmetheca are users who are subscribers to multiple stre
 - Then I can see reviews and other information.
 ## Research
 Before starting the implementation, thorough research was conducted to solidify the concept and features of Filmetheca. This research involved studying similar apps like Letterboxd, IMDB, and Fandango to understand their offerings and how Filmetheca could differentiate itself. The research also included exploring various APIs, frameworks, and libraries that could be used to develop the app effectively and efficiently.
+## Applicaton 
+Down below is a link along with preview of the application itself
+ link: https://adamhansen184.github.io/filmetheca/
+
+ Site preview: 
+![My Image](images/site-image.png)

@@ -141,16 +141,16 @@ function parseTMDBResults(results) {
         // TODO: Limit the amount of displayed text so as to not expand the card.
         cardTextElement.textContent = result.overview;
         // TODO Declare and initialize a variable to store and create a Bootstrap card button HTML element to allow the user to add the movie/show to their list of movies/shows to watch.
-        let cardWatchButtonElement = document.createElement("button");
+        let cardWatchButtonElement = document.createElement("a");
         cardWatchButtonElement.classList.add("btn");
         cardWatchButtonElement.classList.add("btn-warning");
-        cardWatchButtonElement.setAttribute("type", "button");
+        cardWatchButtonElement.setAttribute("href", "./reviews.html");
         cardWatchButtonElement.textContent = "Read Reviews";
         // Declare and initialize a variable to store and create a Bootstrap card button HTML element to allow the user to add the movie/show to their list of watched movies/shows.
-        let cardWatchedButtonElement = document.createElement("button");
+        let cardWatchedButtonElement = document.createElement("a");
         cardWatchedButtonElement.classList.add("btn");
         cardWatchedButtonElement.classList.add("btn-warning");
-        cardWatchedButtonElement.setAttribute("type", "button");
+        cardWatchedButtonElement.setAttribute("href", "./watched.html");
         cardWatchedButtonElement.textContent = "Write a Review";
 
         // Append the individual card elements to the search results container.

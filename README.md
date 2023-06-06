@@ -61,4 +61,4 @@ Down below is a link along with preview of the application itself
  link: https://adamhansen184.github.io/filmetheca/
 
  Site preview: 
-![My Image](images/site-image.png)
+![My Image](images/site-img.png)
